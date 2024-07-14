@@ -2,9 +2,10 @@
 
 public class GameController : MonoBehaviour
 {
-    public GameObject bubblePrefab;
+    public GameObject[] bubblePrefabs;
     public Transform bubbleParent;
     public float bubbleSpeed = 5f;
+    public ScoreManager scoreManager;
 
     void Update()
     {
@@ -16,6 +17,8 @@ public class GameController : MonoBehaviour
 
     void ShootBubble()
     {
+        int randomIndex = Random.Range(0, bubblePrefabs.Length);
+        GameObject bubblePrefab = bubblePrefabs[randomIndex];
         GameObject bubble = Instantiate(bubblePrefab, transform.position, Quaternion.identity, bubbleParent);
         Rigidbody rb = bubble.GetComponent<Rigidbody>();
         rb.velocity = transform.forward * bubbleSpeed;
