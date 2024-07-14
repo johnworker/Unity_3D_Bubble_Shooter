@@ -26,7 +26,6 @@ public class UIManager : MonoBehaviour
     public void UpdateUI()
     {
         scoreText.text = "Score: " + gameManager.score;
-        bubbleCountText.text = "Bubbles: " + gameManager.GetBubbleCount();
     }
 
     void PauseGame()
