@@ -4,7 +4,7 @@ public class GameController : MonoBehaviour
 {
     public GameObject[] bubblePrefabs;
     public Transform bubbleParent;
-    public float bubbleSpeed = 5f;
+    public float bubbleSpeed = 10f;
     public ScoreManager scoreManager;
 
     void Update()

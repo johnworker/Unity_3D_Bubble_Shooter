@@ -6,20 +6,20 @@ public class Bubble : MonoBehaviour
 
     void Start()
     {
-        // 設置泡泡顏色
         Renderer renderer = GetComponent<Renderer>();
         bubbleColor = renderer.material.color;
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Bubble")
+        if (collision.gameObject.CompareTag("Bubble"))
         {
             Bubble otherBubble = collision.gameObject.GetComponent<Bubble>();
             if (otherBubble != null && otherBubble.bubbleColor == bubbleColor)
             {
                 Destroy(gameObject);
                 Destroy(collision.gameObject);
+                FindObjectOfType<ScoreManager>().AddScore(10);
             }
         }
     }
